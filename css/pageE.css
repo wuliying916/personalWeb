@@ -1,0 +1,120 @@
+.e_background {
+  width: 100%;
+  height: 100%;
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#1296db), to(#4a4848));/*谷歌*/
+  position: relative;
+}
+.e_background .tou_wrap{
+  position: relative;
+  top: 33%;
+  left: 40%;
+
+}
+.e_background img{
+  width: 256px;
+  height: 117px;
+  border-radius: 10000px;
+}
+.tou_wrap > span {
+  display: inline-block;
+  position: absolute;
+  top: 30%;
+  left: 8%;
+  padding-left: 200px;
+  transform-origin: 0 0;
+  font-size: 35px;
+  font-family: 微软雅黑;
+}
+.tou_wrap > span:nth-of-type(1) {
+  animation: xzc 4s linear infinite;
+}
+.tou_wrap > span:nth-of-type(2) {
+  animation: xzc 5s linear infinite;
+  top: 100%;
+  left: 8%;
+}
+.tou_wrap > span:nth-of-type(3) {
+    animation: xzc 6s linear infinite;
+    top: 0;
+    left: 8%;
+}
+.tou_wrap > span:nth-of-type(4) {
+  animation: xzc 7s linear infinite;
+  top: 122%;
+  left: 8%;
+}
+.tou_wrap > span:nth-of-type(5) {
+  animation: xzc 8s linear infinite;
+  top: 142%;
+  left: 8%;
+}
+.tou_wrap > span:nth-of-type(6) {
+  animation: xzc 9s linear infinite;
+  top: 112%;
+  left: 8%;
+}
+@keyframes xzc {
+  0% {
+    transform: rotate(0deg);
+    color: #1296db;}
+  12.5% {
+    transform: rotate(45deg);
+    color: #1296db;
+  }
+  25% {
+    transform: rotate(90deg);
+    color: #1296db;
+  }
+  37.5% {
+    transform: rotate(135deg);
+    color: #4a4848;
+  }
+  50% {
+    transform: rotate(180deg);
+    color: #4a4848;
+  }
+  62.5% {
+    transform: rotate(225deg);
+    color: #4a4848;
+  }
+  75% {
+    transform: rotate(270deg);
+    color: #4a4848;
+  }
+  87.5% {
+    transform: rotate(315deg);
+    color: #1296db;
+  }
+  100% {
+    transform: rotate(360deg);
+    color: #1296db;
+  }
+}
+.e_background_left {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  color: white;
+  font-size: 30px;
+}
+.e_background_right {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  color: white;
+  font-size: 16px;
+  line-height: 3em;
+}
+.tou1 span {
+  width: 15px;
+  height: 60px;
+  background: #1296db;
+  position: absolute;
+}
+.tou1 h1 {
+  margin-left: 20px;
+  font-size: 40px;
+}
+.bottom1 {
+  margin-left: 20px;
+}

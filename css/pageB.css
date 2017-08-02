@@ -1,0 +1,118 @@
+.b_background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  -webkit-transform-style: preserve-3d;
+  -webkit-perspective: 800px;
+  -webkit-perspective-origin: bottom;
+
+}
+.b_background .box_left {
+  width: 50%;
+  height: 100%;
+  background-color: #1296db;
+  float: left;
+  /*-webkit-animation-name: secend-turn;*/
+  /*-webkit-animation-duration: 1s;*/
+  /*transform: translate3d(0px,600px,0px);*/
+  /*transition-timing-function: linear;*/
+  /*transition-duration: 3s;*/
+  position: relative;
+}
+
+.b_background .box_right {
+  width: 50%;
+  height: 100%;
+  background-color: #4a4848;
+  float: left;
+  position: relative;
+  /*-webkit-animation-name: secend-turn;*/
+  /*-webkit-animation-duration: 1s;*/
+}
+.b_background .con-wrap {
+  width: 25%;
+  position: absolute;
+  cursor: pointer;
+  left: 50%;
+  top: 50%;
+  color: #4a4848;
+  font-size: 16px;
+  font-weight: bolder;
+}
+.b_background .con {
+  border: 4px solid #4a4848;
+  border-radius: 50%;
+}
+.b_background .con img,.b_background .con2 img{
+  width: 76%;
+  margin: 10%;
+}
+.b_background .con2-wrap {
+  width: 25%;
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  right: 50%;
+  color: #1296db;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.b_background .con2 {
+  border: 4px solid #1296db;
+  border-radius: 50%;
+}
+
+.b_background .iphone,.web {
+  margin-top: -37%;
+}
+
+
+
+@-webkit-keyframes secend-turn {
+  0% {
+    -webkit-transform: rotateX(90deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+  }
+}
+
+
+
+
+/*鼠标移入图标旋转*/
+.conmoverover {
+  cursor: pointer;
+  animation: conturnin .25s linear 1;
+}
+@keyframes conturnin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.conmoverout {
+  cursor: pointer;
+  animation: conturnout .25s linear 1;
+}
+@keyframes conturnout {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-360deg);
+  }
+}
+
+
+
+
+
+
+
+

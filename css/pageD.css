@@ -1,0 +1,115 @@
+.d_background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#4a4848), to(#1296db));/*谷歌*/
+
+}
+.d_background .box_top {
+  padding: 10% 50%;
+  perspective: 800px;
+  perspective-origin: 50% 100px;
+}
+.d_background .triangle {
+  transform-style: preserve-3d;
+  position: relative;
+  width: 200px;
+  animation:goto 10s linear infinite;
+}
+.d_background .triangle:hover {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+@keyframes goto{
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  20% {
+    transform: rotateX(0deg) rotateY(90deg);
+  }
+  40% {
+    transform: rotateX(0deg) rotateY(180deg);
+  }
+  60% {
+    transform: rotateX(0deg) rotateY(270deg);
+  }
+  80% {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+}
+.d_background .triangle > img {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+.d_background .triangle img:nth-child(1) {
+  transform:rotateX(-90deg) translateZ(-100px);
+}
+.d_background .triangle img:nth-child(2) {
+  transform:rotateX(90deg) translateZ(-100px);
+}
+.d_background .triangle img:nth-child(3) {
+  transform:rotateY(-90deg) translateZ(-100px);
+}
+.d_background .triangle img:nth-child(4) {
+  transform:rotateY(90deg) translateZ(-100px);
+}
+.d_background .triangle img:nth-child(5) {
+  transform:translateZ(100px);
+}
+.d_background .triangle img:nth-child(6) {
+  transform:translateZ(-100px);
+}
+.d_background .box_bottom {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+}
+.word,.icons {
+  float: left;
+}
+.word {
+  width: 20%;
+  height: 100%;
+  position: relative;
+}
+.word p {
+  font-size: 40px;
+  color: #1296db;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  font-weight: bolder;
+}
+.icons {
+  width: 80%;
+  height: 100%;
+  position: relative;
+}
+.icons-ul {
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+}
+.icons-ul > li {
+  width: 20%;
+  height: 50%;
+  margin-right: 4%;
+  display: inline-block;
+}
+.icons-ul > li div {
+  width: 80%;
+  height: 80%;
+  border: 10px solid rgba(18,150,219,0);
+  border-radius: 10%;
+}
+.icons-ul > li div img{
+  width: 100%;
+  height: 100%;
+}
