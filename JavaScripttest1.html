@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>javascripttest1</title>
+  <style>
+    li {
+      list-style: none;
+    }
+    body,html {
+      height: 100%;
+      width: 100%;
+      background: #000;
+    }
+    #maindiv {
+      width: 20%;
+      height: 10%;
+      margin: 10% auto;
+      background: #fff;
+    }
+    #numdiv ul li{
+      width: 25px;
+      height: 25px;
+      background: red;
+      color: #fff;
+      display: inline-block;
+      text-align: center;
+    }
+    #orderdiv {
+      width: 200%;
+      height: 600%;
+      margin: 10% auto;
+      background: #fff;
+      position: relative;
+
+    }
+    #ulItem2 {
+      position: absolute;
+      top: 0;
+    }
+    #ulItem2 li {
+     margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="maindiv">
+
+    <input id="inputval" type="text" />
+    <input id="leftin" type="button" value="左侧入">
+    <input id="rightin" type="button" value="右侧入">
+    <input id="leftout" type="button" value="左侧出">
+    <input id="rightout" type="button" value="右侧出">
+    <div id="numdiv">
+      <ul id="ulItem">
+        <li>10</li>
+        <li>3</li>
+        <li>7</li>
+        <li>12</li>
+        <li>11</li>
+        <li>30</li>
+      </ul>
+    </div>
+    <div id="orderdiv">
+      <ul id="ulItem2">
+      </ul>
+    </div>
+  </div>
+  <!--有一个input输入框，以及4个操作按钮-->
+
+  <!--点击"左侧入"，将input中输入的数字从左侧插入队列中；-->
+  <!--点击"右侧入"，将input中输入的数字从右侧插入队列中；-->
+  <!--点击"左侧出"，读取并删除队列左侧第一个元素，并弹窗显示元素中数值；-->
+  <!--点击"右侧出"，读取并删除队列又侧第一个元素，并弹窗显示元素中数值；-->
+  <!--点击队列中任何一个元素，则该元素会被从队列中删除-->
+  <script>
+
+    function style() {
+
+      var b = [];
+      var ulItem = document.getElementById('ulItem');
+      var liItem = ulItem.getElementsByTagName('li');
+      for(var i = 0; i < liItem.length; i++){
+        b.push(Number(liItem[i].innerText));
+
+      }
+      //插入排序
+
+      for(var i = 0; i < b.length; i++) {
+        for (var j = i - 1; j >= 0; j--) {
+          if (b[j + 1] < b[j]) {
+            var temp = b[j + 1];
+            b[j + 1] = b[j];
+            b[j] = temp;
+          }
+        }
+      }
+
+      return b;
+
+    }
+    function setHeight() {
+      var b = style();
+      var ulnode = document.getElementById('ulItem2');
+      for(var i = 0; i < b.length; i++){
+        var newnode = document.createElement('li');
+        newnode.innerHTML = b[i];
+        newnode.style.width = '15px';
+        newnode.style.height = 10 * b[i]+'px';
+        newnode.style.background = 'red';
+        newnode.style.float = 'left';
+//        newnode.style.display = 'inline-block';
+        ulnode.appendChild(newnode);
+      }
+    }
+
+    //    判断是否为数字
+
+    function IsNum(value) {
+      if(value == ''){
+        alert("请输入一个数字")
+      }else if(!isNaN(value) && value >= 10 && value <= 100){
+        return value;
+      }else if(!isNaN(value) && value <= 10 && value >= 0){
+        alert('请输入10到100之间的数字');
+        return -1;
+      }else {
+        alert("格式不对，请重新输入一个数字！")
+        return -1;
+      }
+    }
+
+//    左侧入
+     function Leftin() {
+       var inputval = document.getElementById('inputval').value;
+       if(IsNum(inputval)!== -1){
+         if(inputval!= ''){
+           var ulnode = document.getElementById('ulItem');
+           var lifirstnode = document.getElementById('ulItem').firstChild;
+           var newnode = document.createElement('li');
+           newnode.innerHTML = inputval;
+           ulnode.insertBefore(newnode,lifirstnode);
+         }
+      }
+
+    }
+
+//    function Leftin(val) {
+//      var leftin = document.getElementById('leftin');
+//      leftin.onclick = function(){
+//        var inputval = document.getElementById('inputval').value;
+//         if(IsNum(inputval)!== -1){
+//           if(inputval!= ''){
+//             var ulnode = document.getElementById('ulItem');
+//             var lifirstnode = document.getElementById('ulItem').firstChild;
+//             var newnode = document.createElement('li');
+//             newnode.innerHTML = inputval;
+//             ulnode.insertBefore(newnode,lifirstnode);
+//           }
+//        }
+//      };
+//    }
+
+//    右侧入
+     function Rightin() {
+       var ulnode = document.getElementById('ulItem');
+       var inputval = document.getElementById('inputval').value;
+       var liLength = document.getElementsByTagName('li').length;
+       if(IsNum(inputval)!== -1) {
+         if(inputval!=''){
+           var newnode = document.createElement('li');
+           newnode.innerHTML = inputval;
+           ulnode.appendChild(newnode);
+         }
+      }
+    }
+
+//    左侧出
+
+    function Leftout() {
+      var leftvar = document.getElementById('ulItem').firstElementChild.innerText;
+      var leftnode = document.getElementById('ulItem').firstElementChild;
+      document.getElementById('inputval').value = leftvar;
+      var ulnode = document.getElementById('ulItem');
+      ulnode.removeChild(leftnode);
+    }
+
+//    右侧出
+    function Rightout() {
+      var rightvar = document.getElementById('ulItem').lastElementChild.innerText;
+      var rightnode = document.getElementById('ulItem').lastElementChild;
+      document.getElementById('inputval').value = rightvar;
+      var ulnode = document.getElementById('ulItem');
+      ulnode.removeChild(rightnode);
+    }
+
+    function  init() {
+      var leftin = document.getElementById('leftin');
+      var rightin = document.getElementById('rightin');
+      var leftout = document.getElementById('leftout');
+      var rightout = document.getElementById('rightout');
+      leftin.onclick = Leftin;
+      rightin.onclick = Rightin;
+      leftout.onclick = Leftout;
+      rightout.onclick = Rightout;
+    }
+//    init();
+    setHeight();
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .div {
+      width: 300px;
+      height: 200px;
+      position: relative;
+      margin: 0 auto;
+      background: #000;
+    }
+    .div1:before,.div1:after,.div2:before,.div2:after{
+      transition: transform 0.3s;
+      transition-timing-function: cubic-bezier(0.44, 0.05, 0.55, 0.95);
+    }
+    .div:hover .div1:before,.div:hover .div1:after,.div:hover .div2:before,.div:hover .div2:after {
+      transform: scale3d(1, 1, 1);
+
+    }
+    .div1 {
+      width: 300px;
+      height: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .div2 {
+      width: 300px;
+      height: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .div1:after {
+       width: 8px;
+       height: 200px;
+       content: '';
+       position: absolute;
+       background: red;
+       right: 0;
+      transform: scale3d(0.1, 0, 1);
+
+    }
+    .div1:before {
+      width: 8px;
+      height: 200px;
+      content: '';
+      position: absolute;
+      background: red;
+      left: 0;
+      transform: scale3d(0.1, 0, 1);
+    }
+    .div2:before {
+        width: 300px;
+        height: 8px;
+        content: '';
+        position: absolute;
+        background: red;
+        top: 0;
+      transform: scale3d(0, 0.1, 1);
+
+    }
+    .div2:after {
+      width: 300px;
+      height: 8px;
+      content: '';
+      position: absolute;
+      background: red;
+      bottom: 0;
+      transform: scale3d(0, 0.1, 1);
+
+    }
+  </style>
+</head>
+<body>
+<div class="div">
+  <div class="div1">
+    <div class="div2"></div>
+  </div>
+</div>
+
+</body>
+</html>

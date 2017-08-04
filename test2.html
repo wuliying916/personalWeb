@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body,html {
+      background: #000;
+    }
+    .maindiv {
+      width: 30%;
+      height: 25%;
+      background: #fff;
+      margin: 10% auto;
+      border: 20px solid #fff;
+      border-bottom: 10px solid #fff;
+      position: relative;
+    }
+    .maindiv img {
+      width: 100%;
+      height: 100%;
+    }
+    .maindiv img:hover {
+      filter: blur(5px);
+    }
+    .maindiv p:hover {
+      top: 20%;
+      opacity: 1;
+      animation:gradient 3s linear infinite;
+    }
+    @keyframes gradient {
+      from {
+        background-position: 0% 0%;
+      }
+      to {
+        background-position: -100% 0%;
+      }
+    }
+    p {
+      -webkit-background-clip: text;
+      /*使用文字作为裁剪区域向外裁剪，此时文字颜色仍覆盖背景图*/
+      -webkit-text-fill-color: transparent;
+      /*将字体颜色设置成透明，这样就能将背景图显示出来了*/
+      background-image: -webkit-linear-gradient(right,deeppink,dodgerblue);
+      background-size: 200% 100%;
+      /*将背景图宽度拉长至两倍，之前设置background-image的两份相同的颜色组，就是为了能
+      在此拉长后只显示一份颜色组，另外超出的半截颜色组用来实现流光效果*/
+      position: absolute;
+      top: 50%;
+      font-size: 30px;
+      margin-left: 7%;
+      opacity: 0;
+      transition:opacity 0.3s linear,top 0.3s linear;
+    }
+  </style>
+</head>
+<body>
+  <div class="maindiv">
+    <img src="img/banner.jpg" alt="">
+    <p>欢迎参加百度前端技术学院</p>
+  </div>
+</body>
+</html>

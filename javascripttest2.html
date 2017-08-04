@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+//      插入排序 插入排序不适合对于数据量比较大的排序应
+  var arr = [3,5,8,4,6,5];
+  function sort(arr) {
+    if (arr.length <= 1) {
+      return arr;
+    }
+  }
+  for(var i = 0;i < arr.length; i++){
+    for(var j = i-1;j>=0;j--){
+      if (arr[j+1] < arr[j]){
+        var temp = arr[j+1];
+        arr[j+1] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  };
+
+//    冒泡
+//    冒泡排序算法的运作如下：
+//
+//    比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+//    对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。
+//    针对所有的元素重复以上的步骤，除了最后一个。
+//    持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+
+  for(var i = 0;i < arr.length;i++){
+    for(var j = 0;j < arr.length - i;j++){
+      if(arr[j] > arr[j+1]){
+        var tmp = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = tmp;
+      }
+    }
+  }
+
+
+//  选择排序
+
+  for(var i = 0;i < arr.length - 1; i++){
+
+    for(var j = i + 1; j < arr.length; j ++){
+
+      if(arr[i]>arr[j]){
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+
+//    快速排序
+    var left = [];//对left进行快速排序
+    var right = [];//对right在进行快速排序
+    var mid = [arr[0]];
+
+    for(var i = 1; i < arr.length; i++){
+      if(arr[i] < mid[0]){
+        left.push(arr[i]);
+      }else {
+        right.push(arr[i])
+      }
+    }
+  console.log(left.concat(right));
+
+</script>
+</body>
+</html>
